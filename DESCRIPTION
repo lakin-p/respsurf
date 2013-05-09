@@ -1,0 +1,15 @@
+Package: respsurf
+Title: Tools for fitting a response surface to dosage data
+Version: 0.1.1
+Date: 2013-05-09
+Author: Paul Lakin
+Maintainer: Paul Lakin <prl26@case.edu>
+Description: respsurf fits response surfaces to dosage data.
+  It currently only supports the model of Greco et al. of 1995,
+  but may be expanded to include other response surface models,
+  and even other assessments of interactions by dosage, such
+  as the method of Chou-Talalay.
+License: GPL-2
+Depends: 
+  rgl, 
+  minpack.lm
