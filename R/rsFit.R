@@ -23,13 +23,13 @@
 #' @return An object of class 'respsurf'.
 #' @examples
 #' data(dwn.data)
-#' demofit.dn <- rspsfFit()  
+#' demofit.dn <- rsFit()  
 #' ## fit a response surface to the dwn.data data
 #' summary(demofit.dn)
 #' plot(demofit.dn)
 #' 
 #' data(ups.data)
-#' demofit.up <- rspsfFit(data  = ups.data,
+#' demofit.up <- rsFit(data  = ups.data,
 #'                        start = list(B = 0.12, Econ = 1.19, EC50.1 = 1.4, 
 #'                                     EC50.2 = 3.4, m1 = 2.0, m2 = 2.1, 
 #'                                     alfa = 2.0),
@@ -38,13 +38,12 @@
 #' summary(demofit.up)
 #' plot(demofit.up)
 #' 
-#' @aliases rspsfFit
+#' @aliases rsFit
 #' @author Paul Lakin
 #' 
 
 
-rspsfFit <-
-function(
+rsFit <- function(
   data = dwn.data, ## user should give a data frame containing names D1, D2,
                    #  and E. a matrix will also do. 
   mpos = FALSE, ## in general we are looking at the case where we slope down
