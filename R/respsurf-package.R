@@ -13,6 +13,23 @@
 #' but may be expanded to include other response surface models,
 #' and even other assessments of interactions by dosage, such
 #' as the method of Chou-Talalay.
+#' @examples
+#' data(dwn.data)
+#' demofit.dn <- rsFit(data = dwn.data)  
+#' ## fit a response surface to the dwn.data data
+#' summary(demofit.dn)
+#' plot(demofit.dn)
+#' 
+#' data(ups.data)
+#' demofit.up <- rsFit(data  = ups.data,
+#'                        start = list(B = 0.12, Econ = 1.19, EC50.1 = 1.4, 
+#'                                     EC50.2 = 3.4, m1 = 2.0, m2 = 2.1, 
+#'                                     alfa = 2.0),
+#'                        mpos = TRUE
+#' )
+#' summary(demofit.up)
+#' plot(demofit.up)
 #' @import rgl minpack.lm
 
 NULL
+

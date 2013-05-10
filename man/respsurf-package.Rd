@@ -11,8 +11,25 @@
   interactions by dosage, such as the method of
   Chou-Talalay.
 }
+\examples{
+data(dwn.data)
+demofit.dn <- rsFit(data = dwn.data)
+## fit a response surface to the dwn.data data
+summary(demofit.dn)
+plot(demofit.dn)
+
+data(ups.data)
+demofit.up <- rsFit(data  = ups.data,
+                       start = list(B = 0.12, Econ = 1.19, EC50.1 = 1.4,
+                                    EC50.2 = 3.4, m1 = 2.0, m2 = 2.1,
+                                    alfa = 2.0),
+                       mpos = TRUE
+)
+summary(demofit.up)
+plot(demofit.up)
+}
 \author{
-  Paul Lakin \tabular{ll}{ Version: \tab 0.1.2 \cr Date:
+  Paul Lakin \tabular{ll}{ Version: \tab 0.1.2a \cr Date:
   \tab 2013-05-09 \cr Maintainer: \tab Paul Lakin
   \email{prl26@case.edu} \cr }
 }
