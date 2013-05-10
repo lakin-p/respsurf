@@ -29,7 +29,7 @@ summary(demofit.up)
 plot(demofit.up)
 }
 \author{
-  Paul Lakin \tabular{ll}{ Version: \tab 0.1.2a \cr Date:
+  Paul Lakin \tabular{ll}{ Version: \tab 0.1.3 \cr Date:
   \tab 2013-05-09 \cr Maintainer: \tab Paul Lakin
   \email{prl26@case.edu} \cr }
 }
