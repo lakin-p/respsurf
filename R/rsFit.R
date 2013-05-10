@@ -23,7 +23,7 @@
 #' @return An object of class 'respsurf'.
 #' @examples
 #' data(dwn.data)
-#' demofit.dn <- rsFit()  
+#' demofit.dn <- rsFit(data = dwn.data)  
 #' ## fit a response surface to the dwn.data data
 #' summary(demofit.dn)
 #' plot(demofit.dn)
@@ -44,7 +44,7 @@
 
 
 rsFit <- function(
-  data = dwn.data, ## user should give a data frame containing names D1, D2,
+  data = NULL, ## user should give a data frame containing names D1, D2,
                    #  and E. a matrix will also do. 
   mpos = FALSE, ## in general we are looking at the case where we slope down
   start = list( ## in general user should give their own start parameters
