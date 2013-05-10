@@ -12,9 +12,9 @@ This datafile is simulated; it is not from a real laboratory experiment. However
 \format{
   A data frame with 871 observations on the following 3 variables.
   \describe{
-    \item{\code{E}}{a numeric vector}
-    \item{\code{D1}}{a numeric vector}
-    \item{\code{D2}}{a numeric vector}
+    \item{\code{E}}{a vector of endpoint data}
+    \item{\code{D1}}{a vector of concentration data}
+    \item{\code{D2}}{a vector of concentration data}
   }
 }
 \examples{

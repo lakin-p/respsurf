@@ -13,15 +13,14 @@ This datafile is simulated; it is not from a real laboratory experiment. However
 \format{
   A data frame with 871 observations on the following 5 variables.
   \describe{
-    \item{\code{G}}{a numeric vector}
-    \item{\code{E}}{a numeric vector}
-    \item{\code{D1}}{a numeric vector}
-    \item{\code{D2}}{a numeric vector}
-    \item{\code{LC}}{a numeric vector}
+    \item{\code{G}}{a group variable}
+    \item{\code{E}}{a vector of endpoint data}
+    \item{\code{D1}}{a vector of concentration data}
+    \item{\code{D2}}{a vector of concentration data}
+    \item{\code{LC}}{a group variable for level curves}
   }
 }
 \examples{
 data(dwn.data)
-## maybe str(dwn.data) ; plot(dwn.data) ...
 }
 \keyword{datasets}
