@@ -21,7 +21,21 @@
 #' may be added later.
 #' 
 #' @return An object of class 'respsurf'.
+#' @examples
+#' demofit.dn <- rspsfFit(upper = NULL, lower = NULL)  
+#' ## fit a response surface to the dwn.data data
+#' summary(demofit.dn)
+#' plot(demofit.dn)
 #' 
+#' data(ups.data)
+#' demofit.up <- rspsfFit(data  = ups.data,
+#'                        start = list(B = 0.12, Econ = 1.19, EC50.1 = 1.4, 
+#'                                     EC50.2 = 3.4, m1 = 2.0, m2 = 2.1, 
+#'                                     alfa = 2.0),
+#'                        mpos = TRUE
+#' )
+#' summary(demofit.up)
+#' plot(demofit.up)
 #' 
 #' @aliases rspsfFit
 #' @author Paul Lakin
