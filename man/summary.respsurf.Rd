@@ -1,10 +1,7 @@
 \name{summary.respsurf}
 \alias{summary.respsurf}
-\title{summary.respsurf}
-\usage{
-  summary.respsurf(rsp)
-}
+\title{S3 summary method for class 'respsurf'.}
 \description{
-  summary.respsurf
+  S3 summary method for class 'respsurf'.
 }
 

@@ -1,9 +1,8 @@
-#' @title summary.respsurf
-
+#' @S3method respsurf summary
 summary.respsurf <-
-function(rsp){
-  para <- unlist(rsp$par)
-  RSS <- rsp$deviance
+function(object, ...){
+  para <- unlist(object$par)
+  RSS <- object$deviance
   cat("Coefficients:\n")
   print(para)
   cat("Residual sum of squares:")

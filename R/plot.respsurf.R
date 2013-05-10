@@ -1,11 +1,10 @@
-#' @title plot.respsurf
-
+#' @S3method plot respsurf
 plot.respsurf <-
-function(rsp){
+function(x, ...){
   require(rgl)
-  D1 <- rsp$data$D1
-  D2 <- rsp$data$D2
-  E <- rsp$data$E
+  D1 <- x$data$D1
+  D2 <- x$data$D2
+  E <- x$data$E
   nxt10 <- ceiling(log10(length(E)))
   D1lim <- c(0, 1.1*max(D1))
   D2lim <- c(0, 1.1*max(D2))
