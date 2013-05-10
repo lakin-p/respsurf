@@ -4,7 +4,7 @@
 #' @title Tools for fitting a response surface to dosage data
 #' @author Paul Lakin
 #' \tabular{ll}{
-#' Version: \tab 0.1.2 \cr
+#' Version: \tab 0.1.2a \cr
 #' Date: \tab 2013-05-09 \cr
 #' Maintainer: \tab Paul Lakin \email{prl26@@case.edu} \cr
 #' }

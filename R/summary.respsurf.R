@@ -1,4 +1,4 @@
-#' @S3method respsurf summary
+#' @S3method summary respsurf
 summary.respsurf <-
 function(object, ...){
   para <- unlist(object$par)
