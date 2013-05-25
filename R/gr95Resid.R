@@ -21,5 +21,8 @@ function(param, dlist, evec, mpos){
   # Take a vector of parameters of the greco1995 model
   # and spit out a vector of the residuals data.E - model.E
   
-  evec - gr95Model(as.numeric(param), data = dlist, mup = mpos)
+  evec - gr95Model(as.numeric(param), 
+                   D1 = dlist[, 1], 
+                   D2 = dlist[, 2],
+                   mup = mpos)
 }

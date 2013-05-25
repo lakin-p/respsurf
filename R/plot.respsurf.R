@@ -12,5 +12,6 @@ function(x, ...){
   D1vec <- seq(from=0,to=D1lim[2],by=(D1lim[2]/(10^nxt10)))
   D2vec <- seq(from=0,to=D2lim[2],by=(D2lim[2]/(10^nxt10)))
   #?lapply
+  open3d(windowRect = c(30, 30, 600, 600))
   plot3d(D1, D2 , E)
 }
