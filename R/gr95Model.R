@@ -17,22 +17,23 @@
 gr95Model <-
 function(params, D1, D2, mup){
   if(mup){
-    L <- rep(params[1], times = length(D1))
-    U <- rep(params[2], times = length(D1))
+    L <- rep(params[1], times = length(D1)) # B
+    U <- rep(params[2], times = length(D1)) # Econ
     for (i in 1:50){
       ## 50 iterations
       M <- (L + U) /2
-      G <- (D1 / (params[3] * (M / (params[2] - M)) ^ (1 / params[5]))) +
-        (D2 / (params[4] * (M / (params[2] - M)) ^ (1 / params[6]))) +
+      G <- (D1 / (params[3] * ((M - params[1]) / (params[2] - M)) ^ (1 / params[5]))) +
+        (D2 / (params[4] * ((M - params[1]) / (params[2] - M)) ^ (1 / params[6]))) +
         (
           (params[7] * D1 * D2) / (params[3] * params[4] * 
-           (M / (params[2] - M)) ^ (.5/params[5] + .5/params[6]))
+           ((M - params[1]) / (params[2] - M)) ^ (.5/params[5] + .5/params[6]))
         ) - 1
       L[G >= 0] <- M[G >= 0]
       U[G < 0] <- M[G < 0]
     }
     E <- M
-    E[D1 == 0 && D2 == 0] <- params[1]
+    E[(abs(D1) < 0.00000001) & (abs(D2) < 0.00000001)] <- params[1]
+    print(params)
     E
   }
   else{
@@ -41,17 +42,19 @@ function(params, D1, D2, mup){
     for (i in 1:50){
       ## 50 iterations
       M <- (L + U) /2
-      G <- (D1 / (params[3] * (M / (params[2] - M)) ^ (1 / params[5]))) +
-        (D2 / (params[4] * (M / (params[2] - M)) ^ (1 / params[6]))) +
+      G <- (D1 / (params[3] * ((M - params[1]) / (params[2] - M)) ^ 
+                    (1 / params[5]))) +
+        (D2 / (params[4] * ((M - params[1]) / (params[2] - M)) ^ (1 / params[6]))) +
         (
           (params[7] * D1 * D2) / (params[3] * params[4] * 
-         (M / (params[2] - M)) ^ (.5/params[5] + .5/params[6]))
+         ((M - params[1]) / (params[2] - M)) ^ (.5/params[5] + .5/params[6]))
         ) - 1
       L[G <= 0] <- M[G <= 0]
       U[G > 0] <- M[G > 0]
     }
     E <- M
-    E[D1 == 0 && D2 == 0] <- params[2]
+    E[(abs(D1) < 0.00000001) & (abs(D2) < 0.00000001)] <- params[2]
+    print(params)
     E
   }
 }

@@ -5,11 +5,11 @@
 #' @param start A list of numeric values, always of the form
 #' B, Econ, C50.1, C50.2, m1, m2, alpha. Defaults to a fair guess
 #' for the example data, dwn.data.
-#' @param lower A list of numeric values, always of the form
+#' @param lower A vector of numeric values, always of the form
 #' B, Econ, C50.1, C50.2, m1, m2, alpha. Can and probably should
 #' be left null for final run. Defaults to fair guesses at lower
 #' bounds for the example data, dwn.data.
-#' @param upper A list of numeric values, always of the form
+#' @param upper A vector of numeric values, always of the form
 #' B, Econ, C50.1, C50.2, m1, m2, alpha. Can and probably should
 #' be left null for final run. Defaults to fair guesses at upper
 #' bounds for the example data, dwn.data.
@@ -56,29 +56,31 @@ rsFit <- function(
     m2 = -2.2, 
     alfa = 2.0
   ),
-  lower = list(B = 0, ## users should specify null if they want unlimited search
-               Econ = 0, 
-               IC50.1 = .0000001, 
-               IC50.2 = .0000001,
-               m1 = -6, 
-               m2 = -6, 
-               alfa = .1
-  ),
-  upper = list(B = 1, ## users should specify null if they want unlimited search
-               Econ = 5, 
-               EC50.1 = 20, 
-               EC50.2 = 20,
-               m1 = -0.5, 
-               m2 = -0.5, 
-               alfa = 50
-  ),
+#   lower = c(B = 0, ## users should specify null if they want unlimited search
+#                Econ = 0, 
+#                IC50.1 = .0000001, 
+#                IC50.2 = .0000001,
+#                m1 = -10, 
+#                m2 = -10, 
+#                alfa = -50
+#   ),
+  lower = NULL,
+#   upper = c(B = 1, ## users should specify null if they want unlimited search
+#                Econ = 5, 
+#                IC50.1 = 20, 
+#                IC50.2 = 20,
+#                m1 = -0.01, 
+#                m2 = -0.01, 
+#                alfa = 50
+#   ),
+  upper = NULL,
   method = "greco95" ## for now this is the only option
 )
 {
   require(minpack.lm)
   out <- nls.lm(par = start,
-                lower = as.numeric(lower),
-                upper = as.numeric(upper),
+                lower = lower,
+                upper = upper,
                 fn = gr95Resid,
                 control = nls.lm.control(maxiter=1024),
                 dlist = data[, c("D1", "D2")],
@@ -90,6 +92,10 @@ rsFit <- function(
   out$data$D2 <- data[, "D2"]
   out$data$E <- data[, "E"]
   out$mpos <- mpos
+  out$fitted <- gr95Model(params = as.numeric(out$par),
+                          D1 = out$data$D1,
+                          D2 = out$data$D2,
+                          mup = mpos)
   class(out) <- "respsurf"
   out
 }
